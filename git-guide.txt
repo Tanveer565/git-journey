@@ -1,0 +1,100 @@
+Git & GitHub Crash Course for Beginners [2026]:-
+
+PART 1: THE SETUP
+1 : first download git from chrome
+2 : Started using git bash as command line
+
+3 : Using and learning git bash :-
+A: going into a folder
+$ cd Desktop
+
+B: Creating a directory
+$ mkdir git-one
+
+C: currently in Desktop and going into a folder in it
+$ cd git-one
+
+D : Creating a file inside the open folder
+$ touch one.txt
+$ touch two.txt
+
+E : Creating directory and file
+$ mkdir myFolder
+$ cd myFolder
+$ touch three.txt
+
+
+F : The cd .. command moves your terminal one folder up in the file system hierarchy, taking you out of the current folder and into its "parent" folder.
+$ cd .. 
+
+G : Opening the file or folder in your system file
+$ explorer .
+
+H : Telling git work on this folder now on ~/Desktop/git-one
+$ git init
+Initialized empty Git repository in C:/Users/Guestfamilyandfriend/Desktop/git-one/.git 
+// it means git is now started tracking this folder and have made file .git to track 
+
+I : 
+Seeing all files
+$ ls
+myFolder/  one.txt  two.txt
+
+seeing hidden files also
+$ ls -a
+./  ../  .git/  myFolder/  one.txt  two.txt
+
+.git :- git tracks all the data like versions , changes , dates etc.
+
+We have set the git and from now on git will be able to track every change.
+
+Note :- We have Created a local repo and now we will create a remote repo with GitHub
+
+PART 2: GitHub
+1 : Using GitHub
+
+A : Open GitHub click on new create a repo named:git-journey adding description making it public.
+B : Creating a file by clicking on + icon one.txt and click on commit changes.
+
+2 : adding the repo git-journey 
+A :
+going one step back in desktop
+$ cd ../
+
+B: Cloning the repository in ~/Desktop
+$ git clone https://github.com/Tanveer565/git-journey.git
+Cloning into 'git-journey'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (6/6), done.
+
+repo get cloned ~/Desktop
+$ ls
+git-journey/
+git-one/
+
+open 
+$ cd git-journey
+
+$ ls -a
+./  ../  .git/  one.txt  two.txt
+here .git is created means that git is tracking the changes.
+
+C : After it i made a little change in one and two .txt files inside git-journey and used git status
+
+In simple terms, git status is like a summary of your project. It tells you exactly where the changes have made and what new is added
+
+ ~/Desktop/git-journey (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   one.txt
+        modified:   two.txt
+
+Note :- Till now we have learned how we can create git locally and remotely and how git tracks the changes and how we can see that overall summary of changes using git status.
