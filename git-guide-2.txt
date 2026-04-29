@@ -1,0 +1,103 @@
+note:- take the ready work from staging area and commit it to save permanently
+
+PART 4 :- git Commit (Saving Changes Permanently)
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    git-guide.txt -> git-guide-1.txt
+        new file:   git-guide-2.txt
+        new file:   newFolder/three.txt
+        modified:   one.txt
+        deleted:    two.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   git-guide-2.txt
+
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git add --all
+#Added of all changes to staging to commit
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git commit -m "I have made many changes to the files"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'Guestfamilyandfriend@Imran-Khan.(none)')
+#The first time when you will commit the GitHub will as you to add 
+your email and name to save so it can track who made the changes
+
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git config --global user.email "itanveerkhan9@gmail.com"
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git config --global user.name "Tanveer565"
+#Added the email and the username now you can commit
+
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git commit -m "I have made many changes to the files"
+[main 4446770] I have made many changes to the files
+ 5 files changed, 86 insertions(+), 3 deletions(-)
+ rename git-guide.txt => git-guide-1.txt (52%)
+ create mode 100644 git-guide-2.txt
+ create mode 100644 newFolder/three.txt
+ delete mode 100644 two.txt
+# it shows your changes
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+#status showing the commit
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git reset HEAD~
+Unstaged changes after reset:
+D       git-guide.txt
+M       one.txt
+D       two.txt
+# use git $git reset HEAD~ move HEAD back 1 commit
+# Before: You have 3 commits (C1 ← C2 ← C3)
+# After git reset HEAD~:
+# HEAD moves to C2, changes from C3 become unstaged
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    git-guide.txt
+        modified:   one.txt
+        deleted:    two.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        git-guide-1.txt
+        git-guide-2.txt
+        newFolder/
+
+no changes added to commit

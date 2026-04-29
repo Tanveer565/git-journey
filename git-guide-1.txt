@@ -1,6 +1,6 @@
 Git & GitHub Crash Course for Beginners [2026]:-
 
-PART 1: THE SETUP
+PART 1: THE SETUP (Locally)
 1 : first download git from chrome
 2 : Started using git bash as command line
 
@@ -50,7 +50,7 @@ We have set the git and from now on git will be able to track every change.
 
 Note :- We have Created a local repo and now we will create a remote repo with GitHub
 
-PART 2: GitHub
+PART 2: GitHub (Remotly)
 1 : Using GitHub
 
 A : Open GitHub click on new create a repo named:git-journey adding description making it public.
@@ -98,3 +98,85 @@ Changes not staged for commit:
         modified:   two.txt
 
 Note :- Till now we have learned how we can create git locally and remotely and how git tracks the changes and how we can see that overall summary of changes using git status.
+
+PART 3: Moving the changes to Staging(Locally)
+
+Staging :-an intermediate stage where you can review, Adjust, remove changes                                                                           In Git, "stages" (or "the staging area") means you have marked specific
+          changes to be included in your next commit.
+
+      Think of it like packing a suitcase for a trip:
+
+      Working directory = Your whole closet (all your clothes/changes)
+
+      Staging area = The suitcase (you stage the items you want to bring)
+
+      Commit = Zipping the suitcase and locking it (saving that exact selection    
+               permanently)
+
+
+# This msg shows that the change has been made but not added to the stage
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   one.txt
+        modified:   two.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        myFolder/
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+#stages all changes in the entire repository - not just the current folder.
+What it includes:
+Type of change	Gets staged?
+Modified files
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git add --all / -A
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   myFolder/three.txt
+        modified:   one.txt
+        modified:   two.txt
+
+
+#Undo or Move Changes from staging to back
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git reset 
+Unstaged changes after reset:
+M       one.txt
+M       two.txt
+
+# $git add . - Stage Changes in Current Directory and it's file only
+
+# $ git add * - Staging all changes expect deleted once
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git status
+Changes to be committed:
+        new file:   four.txt
+        new file:   newFolder/three.txt
+        modified:   one.txt
+        modified:   two.txt
+
+Changes not staged for commit:
+        deleted:    two.txt
+
+# $git add filename :- for specific file
+# $git add Folder filename :- for specific file I specific folder
+# $git add *.txt :- for specific all txt files expect deletes
+
+
+
