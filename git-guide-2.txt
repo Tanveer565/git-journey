@@ -256,4 +256,55 @@ $ git diff id1 id2
 
 PART 8 :- Push Fetch and Pull 
 
+Push:-
 
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git push origin main
+info: please complete authentication in your browser...
+Enumerating objects: 36, done.
+Counting objects: 100% (36/36), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (25/25), done.
+Writing objects: 100% (34/34), 7.14 KiB | 1.19 MiB/s, done.
+Total 34 (delta 13), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (13/13), done.
+To https://github.com/Tanveer565/git-journey.git
+   e1cc4e2..5e255f9  main -> main
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git checkout staging
+Switched to branch 'staging'
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (staging)
+$ git push origin staging
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'staging' on GitHub by visiting:
+remote:      https://github.com/Tanveer565/git-journey/pull/new/staging
+remote:
+To https://github.com/Tanveer565/git-journey.git
+ * [new branch]      staging -> staging
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (staging)
+$ git checkout development
+Switched to branch 'development'
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (development)
+$ git push origin development
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'development' on GitHub by visiting:
+remote:      https://github.com/Tanveer565/git-journey/pull/new/development
+remote:
+To https://github.com/Tanveer565/git-journey.git
+ * [new branch]      development -> development
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (development)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+$git fetch
+Fetch :- to bring the remote changes to your local file but not merging
+
+$git pull
+Fetch :- to bring the remote changes to your local file with merging
