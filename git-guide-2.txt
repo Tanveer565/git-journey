@@ -307,4 +307,4 @@ $git fetch
 Fetch :- to bring the remote changes to your local file but not merging
 
 $git pull
-Fetch :- to bring the remote changes to your local file with merging
+Pull :- to bring the remote changes to your local file with merging
