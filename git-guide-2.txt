@@ -101,3 +101,159 @@ Untracked files:
         newFolder/
 
 no changes added to commit
+
+$ git log => to see the previous commits/Changes
+$ git log --oneline => to see the previous commits/Changes in short or or in one line
+#These two command shows about the history of commit you have made with their respective id
+
+PART 5 :- git Branching 
+          BRANCHING:-Branching is a core feature in Git that allows you to create independent lines of development within the same repository. A branch represents a separate pointer to a specific commit, letting you work on new features, bug fixes, or experiments without affecting the main codebase.
+
+          1] Main branch (often called main or master): The primary, stable version of your project
+          2]Feature branches: Temporary branches for developing new features
+          3]Isolated environment: Changes in one branch don't affect others until merged
+
+
+Merged :- combining changes from branches in one branch
+
+$git branch : To see the branch we have
+$ git branch development : to create a new branch named development
+
+$ git checkout development
+Switched to branch 'development'
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (development)
+$ git status
+On branch development
+nothing to commit, working tree clean
+
+## changes and commits made in development branch will not be shown
+   in the main branch and will not affect it.
+   No duplication problem
+   you can merge the branch to save.
+
+$ git merge main -m "Merging main into development"
+## You can merge main into development so changes made in main will be  
+   avail in dev. as well
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git add .
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git commit -m
+error: switch `m' requires a value
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git commit -m "The change in one.txt"
+[main 8f83914] The change in one.txt
+ 1 file changed, 1 insertion(+)
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (main)
+$ git checkout development
+Switched to branch 'development'
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (development)
+$ git status
+On branch development
+nothing to commit, working tree clean
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (development)
+$ git merge main -m "mergin main into dev"
+Merge made by the 'ort' strategy.
+ one.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+PART 6 :- Merge conflicts
+
+if you have two branches like development and staging and there is change in same file in both it will lead to a conflict during merging
+
+so I created two branch staging and development then I commited change in both branch six.txt file then I tried two merge staging into dev
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (development)
+
+$ git merge staging -m "merging staging into dev"
+Auto-merging six.txt
+CONFLICT (content): Merge conflict in six.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+merge get failed and this got written in file six to decide which change is final
+
+<<<<<<< HEAD
+two
+=======
+one
+>>>>>>> staging
+
+just cut the rest and leave what you want two save
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (development|MERGING)
+$ git add .
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey (development|MERGING)
+$ git commit -m "merge conflict solved"
+[development 05e0fcf] merge conflict solved
+
+## now if you go in the staging no change will be there but you can now merge dev into it without conflict as both branch are now in the sync then you can merge them into main
+
+
+PART 7 :- Going to previous version using commit Id (git log)
+
+##Change something in file and then stage and commit it
+
+$ git add .
+$ git commit -m "change in one"
+
+##use log to see all commit and copy the commit id just before the recent         
+commit
+
+$ git log --oneline
+92bdb73 (HEAD -> main) change in one
+05e0fcf (staging, development) merge conflict solved
+1792ec1 change in six.txt two
+e7d68a8 change in six.txt
+a404565 mergin main into dev
+8f83914 The change in one.txt
+a004807 I created six.txt
+1687984 I Have made some changes
+e1cc4e2 (origin/main, origin/HEAD) Add Git & GitHub Learn
+ab08d11 Add two.txt with initial content 'two'
+159c453 Add one.txt with initial content 'one'
+
+##then checkout in the commit you will be at the previous version.
+$ git checkout 05e0fcf
+Note: switching to '05e0fcf'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 05e0fcf merge conflict solved
+
+Guestfamilyandfriend@Imran-Khan MINGW64 ~/Desktop/git-journey ((05e0fcf...))
+
+## COMPARE ONE COMMIT TO ANOTHER
+
+you can see the changes between two commits or version by using
+$ git diff id1 id2
+
+PART 8 :- Push Fetch and Pull 
+
+
